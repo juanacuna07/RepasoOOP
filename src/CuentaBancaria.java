@@ -19,4 +19,29 @@ public class CuentaBancaria
         return saldo;
     }
 
+    public void consignar(int valorAConsignar)
+    {
+        if(valorAConsignar <= 0)
+        {
+            throw new IllegalArgumentException("El valor no es valido");
+        }
+
+        this.saldo += valorAConsignar;
+    }
+
+    public void retirar(int valorARetirar)
+    {
+        if(valorARetirar <= 0)
+        {
+            throw new IllegalArgumentException("El valor no es valido");
+        }
+
+        if(valorARetirar > saldo)
+        {
+            throw new IllegalStateException("No se puede retirar de mas");
+        }
+
+        this.saldo -= valorARetirar;
+    }
+
 }
